@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Background and GIFs with Snow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url("background2.jpg") no-repeat center center;
+      background-size: 1600px auto;
+      overflow: hidden;
+    }
+
+    .foreground-image {
+      position: absolute;
+    }
+
+    .pudding {
+      top: 43px;
+      left: 170px;
+      width: 1130px;
+    }
+
+    .duck {
+      top: 300px;
+      left: 365px;
+      width: 180px;
+    }
+
+    .yellowman {
+      top: 500px;
+      left: 900px;
+      width: 260px;
+    }
+
+    .woman {
+      top: 200px;
+      left: 900px;
+      width: 220px;
+    }
+
+    .pinkdolphin {
+      top: 500px;
+      left: 360px;
+      width: 290px;
+    }
+
+    /* 雪花样式 */
+    .snowflake {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      pointer-events: none;
+      animation: fall 2s linear forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img class="foreground-image pudding" src="Pudding_Animation.png" alt="Pudding Animation" />
+  <img class="foreground-image duck" src="duck.GIF" alt="Duck Animation" />
+  <img class="foreground-image yellowman" src="yellowman.GIF" alt="Yellowman Animation" />
+  <img class="foreground-image woman" src="woman.GIF" alt="Woman Animation" />
+  <img class="foreground-image pinkdolphin" src="pinkdolphin.GIF" alt="Pink Dolphin Animation" />
+
+  <script>
+    document.addEventListener("mousemove", function (e) {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.style.left = e.pageX + "px";
+      snowflake.style.top = e.pageY + "px";
+      document.body.appendChild(snowflake);
+
+      // 动画后移除雪花
+      setTimeout(() => {
+        snowflake.remove();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
+
+
+
